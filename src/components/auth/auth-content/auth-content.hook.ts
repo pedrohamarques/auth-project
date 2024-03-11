@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Alert } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import type { CredentialProps } from "@typings/credentials";
 import type { AuthContentProps } from "./types";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { AuthRoutes, AuthRoutesNavigation } from "@routes/types";
 
 export function useAuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
   const [credentialsInvalid, setCredentialsInvalid] = useState({
@@ -12,8 +15,15 @@ export function useAuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
     confirmPassword: false,
   });
 
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthRoutesNavigation>>();
+
   function switchAuthModeHandler() {
-    // Todo
+    if (isLogin) {
+      navigation.replace(AuthRoutes.SIGNUP);
+    } else {
+      navigation.replace(AuthRoutes.LOGIN);
+    }
   }
 
   function submitHandler(credentials: CredentialProps) {
@@ -42,7 +52,7 @@ export function useAuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
       });
       return;
     }
-    onAuthenticate({ email, password });
+    onAuthenticate?.({ email, password });
   }
 
   return {

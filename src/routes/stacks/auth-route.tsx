@@ -6,7 +6,9 @@ import { SignUpScreen } from "@screens/signup-screen";
 
 import { Colors } from "@constants/styles";
 
-const Stack = createNativeStackNavigator();
+import type { AuthRoutesNavigation } from "@routes/types";
+
+const Stack = createNativeStackNavigator<AuthRoutesNavigation>();
 
 export function AuthStack() {
   return (

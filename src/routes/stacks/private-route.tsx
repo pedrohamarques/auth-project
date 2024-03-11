@@ -5,7 +5,9 @@ import { WelcomeScreen } from "@screens/welcome-screen";
 
 import { Colors } from "@constants/styles";
 
-const Stack = createNativeStackNavigator();
+import { PrivateRoutes, type PrivateRoutesNavigation } from "@routes/types";
+
+const Stack = createNativeStackNavigator<PrivateRoutesNavigation>();
 
 export function PrivateStack() {
   return (
@@ -16,7 +18,7 @@ export function PrivateStack() {
         contentStyle: { backgroundColor: Colors.primary100 },
       }}
     >
-      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name={PrivateRoutes.WELCOME} component={WelcomeScreen} />
     </Stack.Navigator>
   );
 }

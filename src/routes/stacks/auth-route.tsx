@@ -6,7 +6,7 @@ import { SignUpScreen } from "@screens/signup-screen";
 
 import { Colors } from "@constants/styles";
 
-import type { AuthRoutesNavigation } from "@routes/types";
+import { AuthRoutes, type AuthRoutesNavigation } from "@routes/types";
 
 const Stack = createNativeStackNavigator<AuthRoutesNavigation>();
 
@@ -19,8 +19,8 @@ export function AuthStack() {
         contentStyle: { backgroundColor: Colors.primary100 },
       }}
     >
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name={AuthRoutes.LOGIN} component={LoginScreen} />
+      <Stack.Screen name={AuthRoutes.SIGNUP} component={SignUpScreen} />
     </Stack.Navigator>
   );
 }

@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { AuthContext } from "@stores/auth-context";
-
 import { AuthStack, PrivateStack } from "./stacks";
+import { useNavigationRoutes } from "./navigation.hook";
 
 export function Navigation() {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { appIsReady, isAuthenticated } = useNavigationRoutes();
+
+  if (!appIsReady) {
+    return null;
+  }
 
   return (
     <NavigationContainer>

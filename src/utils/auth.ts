@@ -1,6 +1,7 @@
 import axios from "axios";
 import { FIREBASE_API_TOKEN } from "@env";
-import { AuthResponse } from "./types";
+
+import type { AuthResponse } from "./types";
 
 export function useAuthRequests() {
   async function createUser(email: string, password: string) {

@@ -4,3 +4,5 @@ export type CredentialProps = {
   confirmEmail: string;
   confirmPassword: string;
 };
+
+export type onAuthenticateProps = Pick<CredentialProps, "email" | "password">;

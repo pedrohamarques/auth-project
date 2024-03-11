@@ -1,6 +1,4 @@
-import type { CredentialProps } from "@typings/credentials";
-
-type onAuthenticateProps = Pick<CredentialProps, "email" | "password">;
+import type { onAuthenticateProps } from "@typings/credentials";
 
 export type AuthContentProps = {
   isLogin?: boolean;

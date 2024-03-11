@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import type { InitialDataProps } from "./types";
 
@@ -16,10 +17,12 @@ export function AuthContextProvider({ children }: React.PropsWithChildren) {
 
   function authenticate(token: string) {
     setAuthToken(token);
+    AsyncStorage.setItem("token", token);
   }
 
   function logout() {
     setAuthToken(null);
+    AsyncStorage.removeItem("token");
   }
 
   const value = {

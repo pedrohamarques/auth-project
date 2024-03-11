@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-function WelcomeScreen() {
+export function WelcomeScreen() {
   return (
     <View style={styles.rootContainer}>
       <Text style={styles.title}>Welcome!</Text>
@@ -9,8 +9,6 @@ function WelcomeScreen() {
     </View>
   );
 }
-
-export default WelcomeScreen;
 
 const styles = StyleSheet.create({
   rootContainer: {

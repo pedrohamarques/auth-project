@@ -7,7 +7,7 @@ type IsInvalidProps<T> = {
 export type useAuthFormProps = Pick<AuthFormProps, "onSubmit">;
 
 export type AuthFormProps = {
-  isLogin: boolean;
+  isLogin?: boolean;
   onSubmit: ({
     confirmEmail,
     confirmPassword,

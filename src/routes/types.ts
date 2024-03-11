@@ -3,7 +3,15 @@ export enum AuthRoutes {
   SIGNUP = "SignUp",
 }
 
+export enum PrivateRoutes {
+  WELCOME = "Welcome",
+}
+
 export type AuthRoutesNavigation = {
-  Login: undefined;
-  SignUp: undefined;
+  [AuthRoutes.LOGIN]: undefined;
+  [AuthRoutes.SIGNUP]: undefined;
+};
+
+export type PrivateRoutesNavigation = {
+  [PrivateRoutes.WELCOME]: undefined;
 };

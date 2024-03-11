@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export function WelcomeScreen() {
+import { IconButton } from "@components/ui";
+
+import { useWelcomeScreen } from "./welcome-screen.hook";
+
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import type { PrivateRoutesNavigation } from "@routes/types";
+
+type WelcomeScreenNavigationParams = {
+  navigation: Pick<
+    NativeStackNavigationProp<PrivateRoutesNavigation>,
+    "setOptions"
+  >;
+};
+
+export function WelcomeScreen({ navigation }: WelcomeScreenNavigationParams) {
+  const { onLogoutHandler } = useWelcomeScreen();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: ({ tintColor }) => (
+        <IconButton
+          icon="exit"
+          color={tintColor}
+          size={24}
+          onPress={onLogoutHandler}
+        />
+      ),
+    });
+  }, []);
+
   return (
     <View style={styles.rootContainer}>
       <Text style={styles.title}>Welcome!</Text>

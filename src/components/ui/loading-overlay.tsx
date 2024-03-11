@@ -3,13 +3,17 @@ import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
 type LoadingOverlayProps = {
   message: string;
+  testID?: string;
 };
 
-export function LoadingOverlay({ message }: LoadingOverlayProps) {
+export function LoadingOverlay({ message, testID }: LoadingOverlayProps) {
   return (
-    <View style={styles.rootContainer}>
+    <View style={styles.rootContainer} testID={testID}>
       <Text style={styles.message}>{message}</Text>
-      <ActivityIndicator size="large" />
+      <ActivityIndicator
+        size="large"
+        testID="components.ui.loading-overlay.activity-indicator"
+      />
     </View>
   );
 }

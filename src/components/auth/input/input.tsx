@@ -16,6 +16,7 @@ type InputProps = {
   onUpdateValue: (value: string) => void;
   isInvalid: boolean;
   value: string;
+  testID?: string;
 };
 
 export function Input({
@@ -25,9 +26,10 @@ export function Input({
   onUpdateValue,
   value,
   isInvalid,
+  testID,
 }: InputProps) {
   return (
-    <View style={styles.inputContainer}>
+    <View style={styles.inputContainer} testID={testID}>
       <Text style={[styles.label, isInvalid && styles.labelInvalid]}>
         {label}
       </Text>
@@ -38,6 +40,7 @@ export function Input({
         secureTextEntry={secure}
         onChangeText={onUpdateValue}
         value={value}
+        testID={`components.auth.input.text-input-${testID}`}
       />
     </View>
   );

@@ -30,7 +30,7 @@ export function AuthForm({
   } = credentialsInvalid;
 
   return (
-    <View style={styles.form}>
+    <View>
       <View>
         <Input
           label="Email Address"
@@ -40,6 +40,7 @@ export function AuthForm({
           value={enteredEmail}
           keyboardType="email-address"
           isInvalid={emailIsInvalid}
+          testID="email"
         />
         {!isLogin && (
           <Input

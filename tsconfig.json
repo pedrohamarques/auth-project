@@ -9,6 +9,7 @@
       "@constants/*": ["src/constants/*"],
       "@screens/*": ["src/screens/*"],
       "@routes/*": ["src/routes/*"],
+      "@utils/*": ["src/utils/*"],
       "src/*": ["src/*"]
     }
   }

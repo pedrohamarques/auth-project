@@ -12,6 +12,7 @@ export function AuthForm({
   isLogin,
   onSubmit,
   credentialsInvalid,
+  testID,
 }: AuthFormProps) {
   const {
     enteredConfirmEmail,
@@ -30,7 +31,7 @@ export function AuthForm({
   } = credentialsInvalid;
 
   return (
-    <View>
+    <View testID={testID}>
       <View>
         <Input
           label="Email Address"

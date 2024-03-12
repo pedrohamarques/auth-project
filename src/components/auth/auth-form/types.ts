@@ -15,4 +15,5 @@ export type AuthFormProps = {
     password,
   }: CredentialProps) => void;
   credentialsInvalid: IsInvalidProps<CredentialProps>;
+  testID?: string;
 };

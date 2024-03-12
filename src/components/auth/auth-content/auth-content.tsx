@@ -20,6 +20,7 @@ export function AuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
         isLogin={isLogin}
         onSubmit={submitHandler}
         credentialsInvalid={credentialsInvalid}
+        testID="components.auth.auth-content.auth-form"
       />
       <View style={styles.buttons}>
         <FlatButton onPress={switchAuthModeHandler}>

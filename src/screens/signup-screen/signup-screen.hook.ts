@@ -21,7 +21,7 @@ export function useSignUpScreen() {
     } catch (error) {
       Alert.alert(
         "Authentication failed",
-        " Could not create uer, please check your input and try again later.",
+        " Could not create user, please check your input and try again later.",
       );
     }
     setIsAuthenticating(false);
